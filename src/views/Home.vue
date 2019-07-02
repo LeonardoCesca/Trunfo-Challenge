@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import Players from "@/components/Players.vue";
+import Players from '@/components/Players.vue';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
-    Players
-  }
+    Players,
+  },
 };
 </script>
 
