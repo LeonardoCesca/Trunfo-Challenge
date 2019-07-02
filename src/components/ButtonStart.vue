@@ -9,13 +9,13 @@
 export default {
   name: 'buttonStart',
   props: [
-    'text'
+    'text',
   ],
   methods: {
-    emitClick () {
-      this.$emit('click')
-    }
-  }
+    emitClick() {
+      this.$emit('click');
+    },
+  },
 };
 </script>
 
