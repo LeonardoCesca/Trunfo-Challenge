@@ -2,18 +2,27 @@
   <div class="players">
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 1</span>
-      <input type="text">
+      <input type="text" v-on:keyup.13="getName">
     </div>
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 2</span>
-      <input type="text">
+      <input type="text" v-on:keyup.13="getName">
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Players"
+  name: "Players",
+  data: {
+      value: ''
+  },
+  methods: {
+      getName(event) {
+          this.value = event.target.value;
+          console.log(this.value)
+      }
+  }
 };
 </script>
 
