@@ -1,21 +1,13 @@
 <template>
-  <div class="home">
-    <h1 class="home__title">SuperTrunfo</h1>
-    <Players/>
-    <Button/>
+  <div class="button">
+    <router-link to="/game">Play</router-link>
   </div>
 </template>
 
 <script>
-import Players from '@/components/Players.vue';
-import Button from '@/components/Button.vue';
 
 export default {
   name: 'home',
-  components: {
-    Players,
-    Button,
-  },
 };
 </script>
 
