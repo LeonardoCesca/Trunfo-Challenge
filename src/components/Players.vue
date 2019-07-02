@@ -13,16 +13,17 @@
 
 <script>
 export default {
-  name: "Players",
-  data: {
-      value: ''
+  name: 'Players',
+  data() {
+    return {
+      value: '',
+    };
   },
   methods: {
-      getName(event) {
-          this.value = event.target.value;
-          console.log(this.value)
-      }
-  }
+    getName(event) {
+      this.value = event.target.value;
+    },
+  },
 };
 </script>
 
