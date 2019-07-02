@@ -1,16 +1,36 @@
 <template>
   <div class="players">
-      <h1>oi</h1>
+    <div class="players players--info">
+      <span class="players__nome">Nome do Jogador 1</span>
+      <input type="text">
+    </div>
+    <div class="players players--info">
+      <span class="players__nome">Nome do Jogador 2</span>
+      <input type="text">
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Players',
- 
+  name: "Players"
 };
 </script>
 
 <style scoped lang="scss">
+.players {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
 
+  &--info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__nome {
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+  }
+}
 </style>
