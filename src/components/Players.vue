@@ -3,11 +3,13 @@
   <div class="players">
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 1</span>
-      <input type="text" v-model="player1">
+      <input type="text" ref="player1" :value="value.player1" @input="getName()">
+      {{player1}}
     </div>
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 2</span>
-      <input type="text" v-model="player2">
+      <input type="text" ref="player2" :value="value.player2" @input="getName()">
+      {{player2}}
     </div>
   </div>
     <ButtonStart @click="getName()" text="Play"/>
@@ -28,23 +30,15 @@ export default {
       player2: '',
     };
   },
-  mounted() {
-    this.player1 = localStorage.player1;
-    this.player2 = localStorage.player2;
-  },
-  watch: {
-    player1(newPlayer) {
-      localStorage.player1 = newPlayer;
-    },
-    player2(newPlayer) {
-      localStorage.player2 = newPlayer;
-    },
+  props: {
+    players: [],
   },
   methods: {
     getName() {
-      console.log(this.player1);
-      console.log(this.player2);
-      this.$router.push({ path: '/game' });
+      this.$emit('input', {
+        player1: this.$refs.player1.value,
+        player2: this.$refs.player2.value,
+      });
     },
   },
 };
