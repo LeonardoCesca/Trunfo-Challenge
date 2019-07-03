@@ -4,12 +4,7 @@
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 1</span>
       <input type="text" ref="player1" :value="value.player1" @input="getName()">
-      {{player1}}
-    </div>
-    <div class="players players--info">
-      <span class="players__nome">Nome do Jogador 2</span>
-      <input type="text" ref="player2" :value="value.player2" @input="getName()">
-      {{player2}}
+      {{value.player1}}
     </div>
   </div>
     <ButtonStart @click="getName()" text="Play"/>
@@ -24,14 +19,13 @@ export default {
   components: {
     ButtonStart,
   },
-  data() {
-    return {
-      player1: '',
-      player2: '',
-    };
-  },
   props: {
-    players: [],
+    value: {
+      type: Object,
+    },
+  },
+  created() {
+    console.log(this.value);
   },
   methods: {
     getName() {
