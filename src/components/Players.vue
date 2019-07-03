@@ -24,11 +24,21 @@ export default {
   },
   data() {
     return {
-      value: '',
-      playersName: [],
       player1: '',
       player2: '',
     };
+  },
+  mounted() {
+    this.player1 = localStorage.player1;
+    this.player2 = localStorage.player2;
+  },
+  watch: {
+    player1(newPlayer) {
+      localStorage.player1 = newPlayer;
+    },
+    player2(newPlayer) {
+      localStorage.player2 = newPlayer;
+    },
   },
   methods: {
     getName() {
