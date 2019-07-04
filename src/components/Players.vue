@@ -3,11 +3,7 @@
   <div class="players">
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 1</span>
-      <input type="text" v-model="player1">
-    </div>
-    <div class="players players--info">
-      <span class="players__nome">Nome do Jogador 2</span>
-      <input type="text" v-model="player2">
+      <input type="text" v-model="player1" @input="captureName" >
     </div>
   </div>
     <ButtonStart @click="getName()" text="Play"/>
@@ -15,6 +11,7 @@
 </template>
 
 <script>
+import Bus from '../bus';
 import ButtonStart from '@/components/ButtonStart.vue';
 
 export default {
@@ -25,28 +22,13 @@ export default {
   data() {
     return {
       player1: '',
-      player2: '',
-    };
-  },
-  mounted() {
-    this.player1 = localStorage.player1;
-    this.player2 = localStorage.player2;
-  },
-  watch: {
-    player1(newPlayer) {
-      localStorage.player1 = newPlayer;
-    },
-    player2(newPlayer) {
-      localStorage.player2 = newPlayer;
-    },
+    }
   },
   methods: {
-    getName() {
-      console.log(this.player1);
-      console.log(this.player2);
-      this.$router.push({ path: '/game' });
-    },
-  },
+    captureName() {
+      Bus.$emit('input', this.player1);
+    }
+  }
 };
 </script>
 
