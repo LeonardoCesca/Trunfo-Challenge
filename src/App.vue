@@ -1,34 +1,27 @@
 <template>
   <div id="app">
     <h1>SuperTrunfo</h1>
-    <Players v-model="player" @input="test"/>
-    {{player.player1}}
-    {{player.player2}}
+    <Players />
+    <Game />
     <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
 import Players from './components/Players.vue';
+import Game from './components/Game.vue';
 
 export default {
   name: 'app',
   components: {
     Players,
+    Game
   },
   data() {
     return {
-      player: {
-        player1: 'dasdasd',
-        player2: 'dasdda',
-      },
+      player1: '',
     };
   },
-  methods: {
-    test() {
-      console.log('oi');
-    }
-  }
 };
 </script>
 

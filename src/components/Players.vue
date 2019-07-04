@@ -3,8 +3,7 @@
   <div class="players">
     <div class="players players--info">
       <span class="players__nome">Nome do Jogador 1</span>
-      <input type="text" ref="player1" :value="value.player1" @input="getName()">
-      {{value.player1}}
+      <input type="text" v-model="player1" @input="captureName" >
     </div>
   </div>
     <ButtonStart @click="getName()" text="Play"/>
@@ -12,6 +11,7 @@
 </template>
 
 <script>
+import Bus from '../bus';
 import ButtonStart from '@/components/ButtonStart.vue';
 
 export default {
@@ -19,22 +19,16 @@ export default {
   components: {
     ButtonStart,
   },
-  props: {
-    value: {
-      type: Object,
-    },
-  },
-  created() {
-    console.log(this.value);
+  data() {
+    return {
+      player1: '',
+    }
   },
   methods: {
-    getName() {
-      this.$emit('input', {
-        player1: this.$refs.player1.value,
-        player2: this.$refs.player2.value,
-      });
-    },
-  },
+    captureName() {
+      Bus.$emit('input', this.player1);
+    }
+  }
 };
 </script>
 
